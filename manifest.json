@@ -1,7 +1,7 @@
 {
-  "name": "Check Eligibility CH",
-  "version": "0.1",
-  "description": "Check Salt Fiber availability",
+  "name": "Comparis fiber checker",
+  "version": "1.0",
+  "description": "Check fiber availability on comparis.ch results",
   "manifest_version": 2,
   "permissions": [
     "https://fiber.salt.ch/",
