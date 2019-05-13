@@ -8,6 +8,7 @@
     "https://api.init7.net/",
     "activeTab"
   ],
+  "web_accessible_resources": ["images/*.png"],
   "content_scripts": [
     {
       "matches":["https://www.comparis.ch/immobilien/*"],

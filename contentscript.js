@@ -25,21 +25,46 @@ function main() {
           zip_code: zip_code
         }
       });
+
+      // loading
+      $("div[data-id="+iseligible.id.id+"]")
+        .find(".header")
+        .append("<img id="+iseligible.id.id+" width='20px' style='margin-left:5px' src='"+ chrome.extension.getURL("images/loading.png") +"'></img>");
+
       chrome.extension.sendRequest({title: 'showResponse', homes: iseligible},
       function(response){
+        // remove loading image
+        $("#"+response.id).remove();
+
         if(response.init7.fiber7 === true){
           $("div[data-id="+response.id+"]")
             .find(".header")
-            .append("<img width='20px' style='margin-left:5px' src='https://www.init7.net/static/img/logo/Init7_logo.svg?h=78dbf1b8'></img>");
+            .append("<img width='20px' style='margin-left:5px' src='"+ chrome.extension.getURL("images/Init7_logo.png") +"'></img>");
         }
         if(response.salt.valid === true){
           $("div[data-id="+response.id+"]")
             .find(".header")
-            .append("<img width='20px' style='margin-left:5px' src='https://www.salt.ch/static/img/logo-main-print.png'></img>");
+            .append("<img width='20px' style='margin-left:5px' src='"+ chrome.extension.getURL("images/salt_logo.png") +"'></img>");
+        }
+
+        if(response.salt.valid === false && response.init7.fiber7 === false) {
+          // Don't forsake everything!
+          // Maybe there's still init7 vdsl
+          if(response.init7.vdsl){
+            $("div[data-id="+response.id+"]")
+              .find(".header")
+            .append("<p style='font-size:0.6em'>Init7 VDSL:"+ response.init7.vdsl_down +"/"+ response.init7.vdsl_up +"</p>");
+          } else {
+          // Ok nothing found :(
+          $("div[data-id="+response.id+"]")
+            .find(".header")
+            .append("<img width='20px' style='margin-left:5px' src='"+ chrome.extension.getURL("images/slow.png") +"'></img>");
+          }
         }
       });
     }
   });
 }
+
 
 main();
