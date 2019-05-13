@@ -9,7 +9,7 @@ Now you can just browse all the results on [comparis](https://www.comparis.ch/im
 if the place already provides fiber support. 
 
 currently Salt (10GBit/s) and Init7
-(1Gbit/s).
+(1Gbit/s) + VDSL.
 
 ### How to
 
@@ -41,7 +41,6 @@ It also has access to the following endpoints for Ajax calls.
 
 ##### Limitations
 - Sorry only for CH Users :(
-- Only for Chrome Users
 - Doesn't work on other sites
 - Uses hardcoded endpoints
 
