@@ -1,6 +1,6 @@
 {
   "name": "Comparis fiber checker",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Check fiber availability on comparis.ch results",
   "manifest_version": 2,
   "permissions": [
