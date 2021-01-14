@@ -4,15 +4,17 @@
 // Return:
 //  Promise
 function is_it_salty_in_here(home) {
-	console.log(home);
+ // create request to create a new session
+  fetch("https://fiber.salt.ch/",{
+	method: 'GET'  
+  });
+
   return fetch("https://fiber.salt.ch/fiber-ui-service/public/eligibility/fiber/address/check", {
     method: 'POST',
-	credentials: 'include',
+    credentials: 'include',
     headers: {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'application/json',
-      'FIBERID': '02',
-	  'ProspectBackendID': '02',
     },
     body: JSON.stringify(home)
   })
@@ -31,7 +33,7 @@ async function wrapper(home, fn) {
   let salt = await is_it_salty_in_here(home.address);
   let init7 = await is_it_init7_in_here(home.address);
   fn({
-    id: home.id,
+    id: home.id_find,
     salt: salt,
     init7: init7
   });
