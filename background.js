@@ -4,11 +4,15 @@
 // Return:
 //  Promise
 function is_it_salty_in_here(home) {
-  return fetch("https://fiber.salt.ch/fix-prospect-ui-service/eligibility_check", {
+	console.log(home);
+  return fetch("https://fiber.salt.ch/fiber-ui-service/public/eligibility/fiber/address/check", {
     method: 'POST',
+	credentials: 'include',
     headers: {
       'Accept': 'application/json, text/plain, */*',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'FIBERID': '02',
+	  'ProspectBackendID': '02',
     },
     body: JSON.stringify(home)
   })
@@ -27,7 +31,7 @@ async function wrapper(home, fn) {
   let salt = await is_it_salty_in_here(home.address);
   let init7 = await is_it_init7_in_here(home.address);
   fn({
-    id: home.id.id,
+    id: home.id,
     salt: salt,
     init7: init7
   });
@@ -39,7 +43,7 @@ async function wrapper(home, fn) {
 // Return:
 //  Promise
 function is_it_init7_in_here(home) {
-  return fetch("https://api.init7.net/check/address/"+
+    return fetch("https://api.init7.net/check/address/" +
       home.zip_code+"/" +
       home.street+"/" +
       home.house_number
