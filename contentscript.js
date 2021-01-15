@@ -39,24 +39,27 @@ function main(newobject) {
             },
             function(response) {
                 if (response.init7 !== undefined && response.init7.fiber7 === true) {
-                    document.getElementById(response.id + "_img").innerHTML += "<img width='20px' style='margin-left:5px' src='" + chrome.extension.getURL("images/Init7_logo.png") + "'></img>";
-                    //document.getElementById(response.id).insertAdjacentHTML("afterend"," <img width='20px' style='margin-left:5px' src='"+ chrome.extension.getURL("images/Init7_logo.png") +"'></img>");
+                    document.getElementById(response.id + "_img").innerHTML += "<img width='20px' title='Init7 - 1Gbit' style='margin-left:5px' src='" + chrome.extension.getURL("images/Init7_logo.png") + "'></img>";
                 }
                 if (response.salt !== undefined && response.salt.valid === true) {
-                    document.getElementById(response.id + "_img").innerHTML += "<img width='20px' style='margin-left:5px' src='" + chrome.extension.getURL("images/salt_logo.png") + "'></img>";
+                    document.getElementById(response.id + "_img").innerHTML += "<img width='20px' title='Salt - 10Gbit' style='margin-left:5px' src='" + chrome.extension.getURL("images/salt_logo.png") + "'></img>";
                 }
 
                 if (response.init7.vdsl === true) {
                     document.getElementById(response.id + "_speed").innerHTML += "<p style='font-size:0.8em'>Init7 VDSL:" + response.init7.vdsl_down / 100 + " Mbit/s / " + response.init7.vdsl_up / 100 + " Mbit/s</p>";
                 }
 
-                if (response.swisscom.broadbandInfo !== null && response.swisscom.broadbandInfo.available === true) {
-                    document.getElementById(response.id + "_img").innerHTML += "<img width='20px' style='margin-left:5px' src='" + chrome.extension.getURL("images/swisscom_logo.png") + "'></img>";
-                    document.getElementById(response.id + "_speed").innerHTML += "<p style='font-size:0.8em'>Swisscom: max. " + response.swisscom.broadbandInfo.maxDownSpeed + " / " + response.swisscom.broadbandInfo.maxUpSpeed + "</p>";
-                    if (response.swisscom.broadbandInfo.extensionInfo !== null) {
-                        document.getElementById(response.id + "_speed").innerHTML += "<p style='font-size:0.6em'>Swisscom Info:" + response.swisscom.extensionInfo + "</p>";
-                    }
-                }
+				if(response.swisscom.broadbandInfo !== undefined && response.swisscom.broadbandInfo !== null && response.swisscom.broadbandInfo.available !== null && response.swisscom.broadbandInfo.available !== undefined){
+					if (response.swisscom.broadbandInfo.available === true) {
+						document.getElementById(response.id + "_img").innerHTML += "<img width='20px' style='margin-left:5px' title='"+response.swisscom.broadbandInfo.technology+"' src='" + chrome.extension.getURL("images/swisscom_logo.png") + "'></img>";
+
+						let swisscom_info = "";
+						if(response.swisscom.broadbandInfo.extensionInfo !== null) {
+							swisscom_info = response.swisscom.broadbandInfo.extensionInfo;
+						}
+						document.getElementById(response.id + "_speed").innerHTML += "<p style='font-size:0.8em' title='"+swisscom_info+"' >Swisscom: max. " + response.swisscom.broadbandInfo.maxDownSpeed + " / " + response.swisscom.broadbandInfo.maxUpSpeed + "</p>";
+					}
+				}
                 document.getElementById(response.id).remove();
             });
     }

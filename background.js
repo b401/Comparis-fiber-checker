@@ -15,6 +15,7 @@ function is_it_salty_in_here(home) {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
+				'User-Agent': '(Comparis-Fiber-Checker github/b401)'
             },
             body: JSON.stringify(home)
         })
@@ -43,6 +44,7 @@ function is_it_swisscom_in_here(home) {
             "headers": {
                 "accept": "application/json, text/javascript, */*; q=0.01",
                 'Content-Type': 'application/json',
+				'User-Agent': '(Comparis-Fiber-Checker github/b401)'
             },
         })
         .then(response => response.json())
@@ -81,7 +83,8 @@ function is_it_init7_in_here(home) {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+					'User-Agent': '(Comparis-Fiber-Checker github/b401)'
                 },
             })
         .then(response => response.json())
