@@ -15,7 +15,8 @@ currently Salt (10GBit/s) and Init7
 Current Chrome version
 
 #### Easy way
-Currently not on the newest version. Please use the manual install method.
+Currently on review on the store. Please use the manual install method.
+
 ~~Install from the [Chrome web store](ttps://chrome.google.com/webstore/detail/lmafadnjikhmoeofhiakoaikceofphcd/)~~
 
 #### Manually
