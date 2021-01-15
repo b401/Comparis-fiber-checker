@@ -3,8 +3,6 @@
 So, you're looking for a new comfy and reasonably priced place to stay but you
 really need that fast internet that you've always wanted.
 
-**Fear no more.**
-
 Now you can just browse all the results on [comparis](https://www.comparis.ch/immobilien/default) and see
 if the place already provides fiber support. 
 
@@ -17,7 +15,8 @@ currently Salt (10GBit/s) and Init7
 Current Chrome version
 
 #### Easy way
-Install from the [Chrome web store](ttps://chrome.google.com/webstore/detail/lmafadnjikhmoeofhiakoaikceofphcd/)
+Currently not on the newest version. Please use the manual install method.
+~~Install from the [Chrome web store](ttps://chrome.google.com/webstore/detail/lmafadnjikhmoeofhiakoaikceofphcd/)~~
 
 #### Manually
 - open ``chrome://extensions``
