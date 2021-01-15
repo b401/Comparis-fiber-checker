@@ -6,6 +6,7 @@
   "permissions": [
     "https://fiber.salt.ch/",
     "https://api.init7.net/",
+    "https://www.swisscom.ch/",
     "activeTab"
   ],
   "web_accessible_resources": ["images/*.png"],
